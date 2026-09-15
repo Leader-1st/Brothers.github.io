@@ -339,7 +339,7 @@
     const fr=Number(stats.featuredReach||0); $('#statFeaturedReach').textContent=formatReach(fr); $('#featuredReachLabel').textContent=`FEATURED AUDIENCE SNAPSHOT · ${formatReach(fr)}`;
     renderTrend(stats.trend||[]);renderCategoryMix(stats.categories||[]);
   }
-  const BMG_API_URL = 'https://script.google.com/macros/s/AKfycbxozN3DyepwL0irWh3XdR4Ali7fFjScP4sIfNityzGaVvgxrWmAZIadbaOfS6rw767V/exec';
+  const BMG_API_URL = 'https://script.google.com/macros/s/AKfycbzDDS-Y8ZwRWd-_eXdqA1UX5f_WqD4eCP9UoTI3PKLxEpP9hEKs9o1fv3jYimjkZME5BA/exec';
 
   function loadStats(){
     const cb = 'bmgStatsCallback_' + Date.now();
