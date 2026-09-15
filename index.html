@@ -124,7 +124,7 @@
     .modal-box::-webkit-scrollbar{width:8px}.modal-box::-webkit-scrollbar-thumb{background:#2f3236;border-radius:20px}
     .close{position:absolute;top:17px;right:17px;width:37px;height:37px;border-radius:10px;background:#191b1c;border:1px solid #34383c;color:#ddd;cursor:pointer;font-size:20px}.close:hover{background:var(--lime);border-color:var(--lime);color:#111}
     .modal-kicker{font-size:9px;letter-spacing:.16em;color:var(--lime);font-weight:800}.modal-box h3{font-size:clamp(31px,4.5vw,52px);line-height:.94;letter-spacing:-.065em;margin:14px 0 13px;font-weight:900}.modal-box>p{max-width:640px;color:#858a8f;line-height:1.68;font-size:13px;margin:0 0 25px}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.optional{font-size:9px;letter-spacing:.14em;color:#777;margin-left:6px;font-weight:600}.field label{font-size:9px;color:#b5b8bb;letter-spacing:.08em;font-weight:800}.field input,.field textarea{width:100%;border:1px solid #34383c;background:#f8f8f4;color:#171817;border-radius:11px;padding:14px 15px;outline:none}.field input::placeholder,.field textarea::placeholder{color:#898b87}.field input:focus,.field textarea:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(215,255,55,.08)}.field textarea{min-height:120px;resize:vertical}.form-actions{display:flex;align-items:center;gap:12px;margin-top:18px}.submit{background:var(--lime);color:#111;border-color:var(--lime);font-weight:900}.submit:hover{background:var(--lime2);border-color:var(--lime2);color:#111}.submit:disabled{opacity:.6;cursor:not-allowed;transform:none}.form-message{font-size:10px;color:#858a8f;line-height:1.5}.form-error{color:#ff9389!important}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:9px;color:#b5b8bb;letter-spacing:.08em;font-weight:800}.field input,.field textarea{width:100%;border:1px solid #34383c;background:#f8f8f4;color:#171817;border-radius:11px;padding:14px 15px;outline:none}.field input::placeholder,.field textarea::placeholder{color:#898b87}.field input:focus,.field textarea:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(215,255,55,.08)}.field textarea{min-height:120px;resize:vertical}.form-actions{display:flex;align-items:center;gap:12px;margin-top:18px}.submit{background:var(--lime);color:#111;border-color:var(--lime);font-weight:900}.submit:hover{background:var(--lime2);border-color:var(--lime2);color:#111}.submit:disabled{opacity:.6;cursor:not-allowed;transform:none}.form-message{font-size:10px;color:#858a8f;line-height:1.5}.form-error{color:#ff9389!important}
     .toast{position:fixed;right:18px;bottom:18px;z-index:120;display:grid;gap:5px;padding:16px 17px;border:1px solid #363a3e;background:#111314;border-radius:13px;box-shadow:0 18px 50px rgba(0,0,0,.45);transform:translateY(18px);opacity:0;pointer-events:none;transition:.25s}.toast.show{transform:none;opacity:1}.toast strong{font-size:11px}.toast span{font-size:10px;color:#858a8f;max-width:310px;line-height:1.45}
 
     /* RESPONSIVE */
@@ -136,7 +136,8 @@
       .container{width:min(100% - 28px,1200px)}.hero{padding-top:135px;padding-bottom:72px}.hero h1{font-size:56px}.hero-copy{font-size:15px}.hero-metrics{grid-template-columns:1fr 1fr;gap:18px}.metric:last-child{grid-column:1/-1}.orchestra{transform:scale(.82);transform-origin:center top;margin:0 -50px -50px}.section-head h2{font-size:43px}.dual,.category-grid,.featured-grid,.resource-grid,.kpis,.workflow,.team,.form-grid{grid-template-columns:1fr}.resource,.resource:nth-child(2n),.resource:nth-child(4n){border-right:0}.resource{border-bottom:1px solid var(--line)!important}.resource:last-child{border-bottom:0!important}.kpi{min-height:150px}.cat-row{grid-template-columns:105px 1fr 25px}.visibility-grid{grid-template-columns:1fr}.visibility-item:nth-child(odd){border-right:0}.network-strip{align-items:flex-start;flex-direction:column;gap:9px}.network-foot button{width:100%;text-align:left;margin-left:0}.modal{padding:10px}.modal-box{padding:27px 19px;border-radius:16px}.footer{display:grid;gap:8px}.network-head h2{font-size:54px}
     }
     @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
-  </style>
+  <style>.optional{font-size:9px;letter-spacing:.08em;opacity:.55;margin-left:6px;font-weight:500}</style>
+</style>
 </head>
 <body>
 <div class="noise"></div>
@@ -249,7 +250,7 @@
 
 <footer><div class="container footer"><span>© 2026 Brothers Media Group</span><span>Creators × Brands × Strategy × Trust</span></div></footer>
 
-<div class="modal" id="modal" aria-hidden="true"><div class="modal-box"><button class="close" id="closeModal">×</button><div class="modal-kicker" id="modalKicker">BMG INTAKE</div><h3 id="modalTitle">Start a Conversation</h3><p id="modalDescription">Tell us what you're building. Your submission will be routed to the appropriate BMG workflow.</p><form id="leadForm"><input type="hidden" id="leadType" value="general"><div class="form-grid"><div class="field"><label>NAME / CONTACT PERSON</label><input id="name" required placeholder="Your name"></div><div class="field"><label>MOBILE <span class="optional">OPTIONAL</span></label><input id="mobile" autocomplete="tel" placeholder="+91"></div><div class="field"><label>EMAIL</label><input id="email" type="email" required placeholder="you@company.com"></div><div class="field"><label id="catLabel">CATEGORY / INDUSTRY</label><input id="category" placeholder="e.g. Fashion, Finance, Beauty"></div><div class="field"><label>CITY</label><input id="city" placeholder="Mumbai"></div><div class="field creator-only"><label>FOLLOWERS</label><input id="followers" inputmode="numeric" placeholder="e.g. 250000"></div><div class="field creator-only"><label>PLATFORM</label><input id="platformInput" placeholder="Instagram / YouTube / LinkedIn"></div><div class="field brand-only"><label>ESTIMATED CAMPAIGN BUDGET</label><input id="budget" placeholder="Optional"></div><div class="field full creator-only"><label>PROFILE / SOCIAL LINK</label><input id="profileUrl" placeholder="https://..."></div><div class="field full"><label>OBJECTIVE / MESSAGE</label><textarea id="message" placeholder="Tell BMG what you need..."></textarea></div></div><div class="form-actions"><button class="btn submit" type="submit" id="submitBtn">SUBMIT TO BMG</button><div class="form-message" id="formMessage"></div></div></form></div></div>
+<div class="modal" id="modal" aria-hidden="true"><div class="modal-box"><button class="close" id="closeModal">×</button><div class="modal-kicker" id="modalKicker">BMG INTAKE</div><h3 id="modalTitle">Start a Conversation</h3><p id="modalDescription">Tell us what you're building. Your submission will be routed to the appropriate BMG workflow.</p><form id="leadForm"><input type="hidden" id="leadType" value="general"><div class="form-grid"><div class="field"><label>NAME / CONTACT PERSON</label><input id="name" required placeholder="Your name"></div><div class="field"><label>MOBILE <span class="optional">OPTIONAL</span></label><input id="mobile" autocomplete="tel" inputmode="tel" placeholder="+91"></div><div class="field"><label>EMAIL</label><input id="email" type="email" required placeholder="you@company.com"></div><div class="field"><label id="catLabel">CATEGORY / INDUSTRY</label><input id="category" placeholder="e.g. Fashion, Finance, Beauty"></div><div class="field"><label>CITY</label><input id="city" placeholder="Mumbai"></div><div class="field creator-only"><label>FOLLOWERS</label><input id="followers" inputmode="numeric" placeholder="e.g. 250000"></div><div class="field creator-only"><label>PLATFORM</label><input id="platformInput" placeholder="Instagram / YouTube / LinkedIn"></div><div class="field brand-only"><label>ESTIMATED CAMPAIGN BUDGET</label><input id="budget" placeholder="Optional"></div><div class="field full creator-only"><label>PROFILE / SOCIAL LINK</label><input id="profileUrl" placeholder="https://..."></div><div class="field full"><label>OBJECTIVE / MESSAGE</label><textarea id="message" placeholder="Tell BMG what you need..."></textarea></div></div><div class="form-actions"><button class="btn submit" type="submit" id="submitBtn">SUBMIT TO BMG</button><div class="form-message" id="formMessage"></div></div></form></div></div>
 <div class="toast" id="toast"><strong id="toastTitle"></strong><span id="toastText"></span></div>
 
 <script>
@@ -338,18 +339,42 @@
     const fr=Number(stats.featuredReach||0); $('#statFeaturedReach').textContent=formatReach(fr); $('#featuredReachLabel').textContent=`FEATURED AUDIENCE SNAPSHOT · ${formatReach(fr)}`;
     renderTrend(stats.trend||[]);renderCategoryMix(stats.categories||[]);
   }
+  const BMG_API_URL = 'https://script.google.com/macros/s/AKfycbxozN3DyepwL0irWh3XdR4Ali7fFjScP4sIfNityzGaVvgxrWmAZIadbaOfS6rw767V/exec';
+
   function loadStats(){
-    if(typeof google==='undefined'||!google.script||!google.script.run){applyStats({creators:0,brands:0,cities:0,featuredReach:0,trend:[],categories:[]});return;}
-    google.script.run.withSuccessHandler(applyStats).withFailureHandler(()=>applyStats({creators:0,brands:0,cities:0,featuredReach:0,trend:[],categories:[]})).getPublicStats();
+    const cb = 'bmgStatsCallback_' + Date.now();
+    window[cb] = function(data){
+      try { applyStats(data || {}); } finally {
+        delete window[cb];
+        const node = document.getElementById(cb + '_script');
+        if (node) node.remove();
+      }
+    };
+    const script = document.createElement('script');
+    script.id = cb + '_script';
+    script.src = BMG_API_URL + '?action=stats&callback=' + encodeURIComponent(cb);
+    script.onerror = function(){ applyStats({creators:0,brands:0,cities:0,featuredReach:0,trend:[],categories:[]}); script.remove(); delete window[cb]; };
+    document.head.appendChild(script);
   }
 
-  $('#leadForm').addEventListener('submit',e=>{
+  $('#leadForm').addEventListener('submit',async e=>{
     e.preventDefault();
     const payload={type:state.type,name:$('#name').value.trim(),mobile:$('#mobile').value.trim(),email:$('#email').value.trim(),category:$('#category').value.trim(),city:$('#city').value.trim(),followers:$('#followers').value.trim(),instagram:state.type==='creator'?$('#profileUrl').value.trim():'',youtube:'',website:state.type==='brand'?$('#profileUrl').value.trim():'',industry:state.type==='brand'?$('#category').value.trim():'',budget:$('#budget').value.trim(),objective:state.type==='brand'?$('#message').value.trim():'',message:$('#message').value.trim(),source:'BMG Website'};
     if(!payload.name||!payload.email){$('#formMessage').textContent='Name and email are required.';$('#formMessage').classList.add('form-error');return;}
     $('#submitBtn').disabled=true;$('#submitBtn').textContent='SENDING…';$('#formMessage').textContent='Routing your submission into the BMG system…';$('#formMessage').classList.remove('form-error');
-    if(typeof google==='undefined'||!google.script||!google.script.run){$('#formMessage').textContent='Apps Script backend is not connected.';$('#formMessage').classList.add('form-error');$('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';return;}
-    google.script.run.withSuccessHandler(res=>{ $('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';$('#formMessage').textContent=res.message||'Submitted successfully.';if(res&&res.success){showToast('BMG submission received','Your details were routed and confirmation emails were sent.');setTimeout(()=>{clearForm();closeModal()},1300);loadStats();} }).withFailureHandler(err=>{console.error(err);$('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';$('#formMessage').textContent='Submission failed. Please try again.';$('#formMessage').classList.add('form-error');}).submitLead(payload);
+    try {
+      await fetch(BMG_API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(payload)});
+      $('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';
+      $('#formMessage').textContent='Submission received. BMG will be in touch shortly.';
+      showToast('BMG submission received','Your details were sent to the BMG system.');
+      setTimeout(()=>{clearForm();closeModal()},1300);
+      setTimeout(loadStats,900);
+    } catch(err) {
+      console.error(err);
+      $('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';
+      $('#formMessage').textContent='Submission could not be sent. Please try again.';
+      $('#formMessage').classList.add('form-error');
+    }
   });
   function clearForm(){ $('#leadForm').reset();setType(state.type); }
   function showToast(title,text){$('#toastTitle').textContent=title;$('#toastText').textContent=text;$('#toast').classList.add('show');setTimeout(()=>$('#toast').classList.remove('show'),4800)}
