@@ -340,7 +340,7 @@
     renderTrend(stats.trend||[]);renderCategoryMix(stats.categories||[]);
   }
   const BMG_API_URL = 'https://script.google.com/macros/s/AKfycbzDDS-Y8ZwRWd-_eXdqA1UX5f_WqD4eCP9UoTI3PKLxEpP9hEKs9o1fv3jYimjkZME5BA/exec';
-  const BMG_STATS_URL = BMG_API_URL + '/stats';
+  const BMG_STATS_URL = BMG_API_URL + '?action=stats&callback='
   let submitFrame = null;
 
   function ensureSubmitFrame(){
@@ -363,7 +363,7 @@
     };
     const script = document.createElement('script');
     script.id = cb + '_script';
-    script.src = BMG_STATS_URL + '?callback=' + encodeURIComponent(cb);
+    script.src = BMG_STATS_URL + encodeURIComponent(cb) + '&_=' + Date.now();
     script.onerror = function(){ applyStats({creators:0,brands:0,cities:0,featuredReach:0,trend:[],categories:[]}); script.remove(); delete window[cb]; };
     document.head.appendChild(script);
   }
