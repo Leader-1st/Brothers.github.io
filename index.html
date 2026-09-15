@@ -340,6 +340,16 @@
     renderTrend(stats.trend||[]);renderCategoryMix(stats.categories||[]);
   }
   const BMG_API_URL = 'https://script.google.com/macros/s/AKfycbzDDS-Y8ZwRWd-_eXdqA1UX5f_WqD4eCP9UoTI3PKLxEpP9hEKs9o1fv3jYimjkZME5BA/exec';
+  let submitFrame = null;
+
+  function ensureSubmitFrame(){
+    if(submitFrame) return submitFrame;
+    submitFrame=document.createElement('iframe');
+    submitFrame.name='bmgSubmitFrame';
+    submitFrame.style.display='none';
+    document.body.appendChild(submitFrame);
+    return submitFrame;
+  }
 
   function loadStats(){
     const cb = 'bmgStatsCallback_' + Date.now();
@@ -363,12 +373,25 @@
     if(!payload.name||!payload.email){$('#formMessage').textContent='Name and email are required.';$('#formMessage').classList.add('form-error');return;}
     $('#submitBtn').disabled=true;$('#submitBtn').textContent='SENDING…';$('#formMessage').textContent='Routing your submission into the BMG system…';$('#formMessage').classList.remove('form-error');
     try {
-      await fetch(BMG_API_URL,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=UTF-8'},body:JSON.stringify(payload)});
+      const frame=ensureSubmitFrame();
+      const form=document.createElement('form');
+      form.method='POST';
+      form.action=BMG_API_URL;
+      form.target=frame.name;
+      form.style.display='none';
+      const input=document.createElement('input');
+      input.type='hidden';
+      input.name='payload';
+      input.value=JSON.stringify(payload);
+      form.appendChild(input);
+      document.body.appendChild(form);
+      form.submit();
+      form.remove();
       $('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';
       $('#formMessage').textContent='Submission received. BMG will be in touch shortly.';
       showToast('BMG submission received','Your details were sent to the BMG system.');
       setTimeout(()=>{clearForm();closeModal()},1300);
-      setTimeout(loadStats,900);
+      setTimeout(loadStats,1200);
     } catch(err) {
       console.error(err);
       $('#submitBtn').disabled=false;$('#submitBtn').textContent='SUBMIT TO BMG';
